@@ -21,9 +21,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '__SECRET_KEY__'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -35,18 +32,14 @@ INSTALLED_APPS = (
 ) + INSTALLED_APPS
 
 MIDDLEWARE_CLASSES = (
-
 ) + MIDDLEWARE_CLASSES
-
-WSGI_APPLICATION = 'wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.', # sqlite3; postgresql_psycopg2
+        'ENGINE': 'django.db.backends.',  # sqlite3; postgresql_psycopg2
         'NAME': '',
         'USER': '',
         'PASSWORD': '',
@@ -68,8 +61,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+# You probably don't need (or shouldn't) touch the settings below
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = '__SECRET_KEY__'
 
-STATIC_URL = '/static/'
+STATIC_ROOT = '__STATIC_ROOT__'
+MEDIA_ROOT = '__MEDIA_ROOT__'
