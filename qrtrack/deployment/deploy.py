@@ -4,18 +4,19 @@ import os
 import sys
 import shutil
 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SKEL_DIR = 'skeleton/'
 
 
-def generate(directory, file, replacements):
-    skeleton_file = os.path.join(SKEL_DIR, file)
-    output_file = os.path.join(directory, file)
-    with open(skeleton_file, 'r') as file:
-        contents = file.read()
+def generate(directory, input_file, replacements={}):
+    skeleton_file = os.path.join(BASE_DIR, SKEL_DIR, input_file)
+    output_file = os.path.join(directory, input_file)
+    with open(skeleton_file, 'r') as input_file:
+        contents = input_file.read()
     for old, new in replacements.items():
         contents = contents.replace(old, new)
-    with open(output_file, 'w') as file:
-        file.write(contents)
+    with open(output_file, 'w') as output_file:
+        output_file.write(contents)
 
 
 def generate_all(directory):
@@ -23,6 +24,8 @@ def generate_all(directory):
         {
             '__SECRET_KEY__': 'asd'
         })
+    generate(directory, 'manage.py')
+    generate(directory, 'wsgi.py')
 
 
 def main():
@@ -32,7 +35,6 @@ def main():
 
     if os.path.exists(args.dir):
         print("The existing folder already exists, choose another location", file=sys.stderr)
-
     try:
         os.mkdir(args.dir)
         generate_all(args.dir)
