@@ -24,14 +24,22 @@ def generate_all(directory):
         {
             '__SECRET_KEY__': 'asd'
         })
-    generate(directory, 'manage.py')
-    generate(directory, 'wsgi.py')
+    generate(directory, 'manage.py',
+        {
+            '__DIR__': directory,
+        })
+    generate(directory, 'wsgi.py',
+        {
+            '__DIR__': directory,
+        })
 
 
 def main():
     parser = argparse.ArgumentParser(description="Creates a Django deployment of qrtrack")
     parser.add_argument('dir', help="Non-existent directory where deployment will be created")
     args = parser.parse_args()
+
+    args.dir = os.path.abspath(args.dir)
 
     if os.path.exists(args.dir):
         print("The existing folder already exists, choose another location", file=sys.stderr)

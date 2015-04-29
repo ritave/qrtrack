@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 import os
 import sys
+from qrtrack.deployment.init import init_env
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "qrtrack.settings")
+    init_env('__DIR__')
 
     from django.core.management import execute_from_command_line
 

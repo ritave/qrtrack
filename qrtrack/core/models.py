@@ -2,8 +2,8 @@ from django.db import models
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
 
-from core.utils import get_hashid
-from core.validators import RatingValidator
+from qrtrack.core.utils import get_hashid
+from qrtrack.core.validators import RatingValidator
 
 
 class QRTagManager(models.Manager):
