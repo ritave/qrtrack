@@ -21,10 +21,6 @@ class QRCollection(models.Model):
     description = models.TextField()
 
 
-class QRCollectionType(models.Model):
-    name = models.CharField(max_length=300, null=False, blank=False, unique=True)
-
-
 class QRTag(models.Model):
     collection = models.ForeignKey(QRCollection, null=False, blank=False, on_delete=models.PROTECT)
     name = models.CharField(max_length=300, null=False, blank=False, unique=True)
