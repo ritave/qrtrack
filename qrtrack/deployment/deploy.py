@@ -5,6 +5,7 @@ import sys
 import shutil
 from subprocess import check_call
 from qrtrack.deployment.init import init_env
+from qrtrack.deployment.core_settings import DEVELOPMENT_SETTINGS_VERSION
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SKEL_DIR = 'skeleton/'
@@ -25,6 +26,7 @@ def generate_all(directory, production):
     generate(directory, 'settings.py',
         {
             '__SECRET_KEY__': 'asd',
+            '__SETTINGS_VERSION__': DEVELOPMENT_SETTINGS_VERSION,
             '__STATIC_ROOT__': os.path.join(directory, 'static'),
             '__MEDIA_ROOT__': os.path.join(directory, 'media'),
         })

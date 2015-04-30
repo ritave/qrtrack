@@ -1,3 +1,5 @@
+DEVELOPMENT_SETTINGS_VERSION = 'alpha'
+
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',

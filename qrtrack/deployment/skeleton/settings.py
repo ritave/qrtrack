@@ -15,6 +15,11 @@ import os
 
 from qrtrack.deployment.core_settings import *
 
+# If your deployment will have an older version of settings.py the server won't start
+# You'll have to check qrtrack.deployment.skeleton.settings.py for differences and then update below
+# variable
+DEPLOYED_SETTINGS_VERSION = '__SETTINGS_VERSION__'
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
