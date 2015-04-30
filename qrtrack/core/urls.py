@@ -4,5 +4,5 @@ import qrtrack.core.views as views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', views.test)
+    url(r'^$', views.index, name='index')
 ]
