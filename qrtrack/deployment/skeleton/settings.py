@@ -70,6 +70,8 @@ USE_TZ = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '__SECRET_KEY__'
+COLLECT_ID_SALT = '__COLLECT_SALT__'
+SHOW_ID_SALT = '__SHOW_SALT__'
 
 STATIC_ROOT = '__STATIC_ROOT__'
 MEDIA_ROOT = '__MEDIA_ROOT__'

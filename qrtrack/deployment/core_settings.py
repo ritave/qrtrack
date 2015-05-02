@@ -7,7 +7,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'qrtrack.core'
+    'qrtrack.core',
+    'qrtrack.qrcodes',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -4,6 +4,7 @@ import os
 import sys
 import shutil
 from subprocess import check_call
+import uuid
 from qrtrack.deployment.init import init_env
 from qrtrack.deployment.core_settings import DEVELOPMENT_SETTINGS_VERSION
 
@@ -25,7 +26,9 @@ def generate(directory, input_file, replacements={}):
 def generate_all(directory, production):
     generate(directory, 'settings.py',
         {
-            '__SECRET_KEY__': 'asd',
+            '__SECRET_KEY__': str(uuid.uuid4()),
+            '__COLLECT_SALT__': str(uuid.uuid4()),
+            '__SHOW_SALT__': str(uuid.uuid4()),
             '__SETTINGS_VERSION__': DEVELOPMENT_SETTINGS_VERSION,
             '__STATIC_ROOT__': os.path.join(directory, 'static'),
             '__MEDIA_ROOT__': os.path.join(directory, 'media'),

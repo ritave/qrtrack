@@ -7,12 +7,14 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="{% static 'bootstrap/3.3.4/darkly/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/main.less' %}" />
 </head>
 <body>
-<div class="container">
-    <h1>QRTrack</h1>
-    <p class="lead">{% trans "Gotta scan them all" %}</p>
+<div class="container" style="padding-top: 10px">
+    {% for alert in alerts %}
+        <div class="alert alert-{{ alert.type }}" role="alert">
+            {{ alert.msg }}
+        </div>
+    {% endfor %}
     {% block body %}{% endblock %}
 </div>
 </body>
