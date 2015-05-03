@@ -26,7 +26,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(unique=True, max_length=300)),
-                ('description', models.TextField()),
+                ('description', models.TextField(null=True, blank=True)),
             ],
         ),
         migrations.CreateModel(
@@ -34,8 +34,9 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(unique=True, max_length=300)),
-                ('description', models.TextField()),
+                ('description', models.TextField(null=True, blank=True)),
                 ('collection', models.ForeignKey(to='qrcodes.QRCollection', on_delete=django.db.models.deletion.PROTECT)),
+                ('owner', models.ForeignKey(blank=True, to=settings.AUTH_USER_MODEL, null=True)),
             ],
         ),
         migrations.AddField(

@@ -41,7 +41,7 @@ class _UnifiedDBUser:
 
     @property
     def owned_qrcodes(self):
-        return QRTag.objects.filter(completedtags__user=self._user)
+        return QRTag.objects.filter(completedtag__user=self._user)
 
 
 class _UnifiedSessionUser():

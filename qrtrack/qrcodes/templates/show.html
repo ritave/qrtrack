@@ -1,8 +1,35 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<h2>{{ qrcode.name }}</h2>
-{% if collecting %}
-    Collecting
+<div class="row">
+    <div class="col-md-12">
+        <h1><strong>{{ qrcode.name }}</strong></h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-9">
+        {{ qrcode.description }}
+    </div>
+    <div class="col-md-3">
+        <h4>Collection: <strong>{{ qrcode.collection.name}}</strong></h4>
+        <p>Done: {{ done }} / {{ total}}</p>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" style="min-width: 2em;width: {{ percent_done }}%">
+            </div>
+        </div>
+    </div>
+</div>
+{% if suggest %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well">
+                <div class="text-center">
+                    Why don't you try searching for<br />
+                    <strong>{{ suggest.name }}</strong>?<br />
+                    It should be around here... Somewhere...
+                </div>
+            </div>
+        </div>
+    </div>
 {% endif %}
 {% endblock %}

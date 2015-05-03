@@ -9,13 +9,27 @@
     <link rel="stylesheet" href="{% static 'bootstrap/3.3.4/darkly/bootstrap.min.css' %}" />
 </head>
 <body>
-<div class="container" style="padding-top: 10px">
+<div class="container">
+    {% if alerts %}
+        <div class="row" style="padding-top: 20px"><div class="col-md-12">
     {% for alert in alerts %}
         <div class="alert alert-{{ alert.type }}" role="alert">
             {{ alert.msg }}
         </div>
     {% endfor %}
+        </div></div>
+    {% endif %}
     {% block body %}{% endblock %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well well-sm text-center">
+                <a href="explain.html">
+                    <h6>Wanna know what's going on and sign up for beta?</h6>
+                </a>
+            </div>
+            {% block footer %}{% endblock %}
+        </div>
+    </div>
 </div>
 </body>
 </html>

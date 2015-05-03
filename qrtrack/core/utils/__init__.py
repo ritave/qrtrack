@@ -22,12 +22,20 @@ class Alerts:
         else:
             self._alerts = before[:]  # Will be modified, we don't wanna modify what user gave us
 
+    def success(self, msg):
+        self._alert('success', msg)
+        return self
+
     def info(self, msg):
         self._alert('info', msg)
         return self
 
     def warning(self, msg):
         self._alert('warn', msg)
+        return self
+
+    def error(self, msg):
+        self._alert('error', msg)
         return self
 
     def build(self):

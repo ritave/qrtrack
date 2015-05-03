@@ -39,7 +39,7 @@ class QRTagManager(models.Manager):
 class QRCollection(models.Model):
     """A category for tags, in the future it might be curated"""
     name = models.CharField(max_length=300, null=False, blank=False, unique=True)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -48,12 +48,14 @@ class QRCollection(models.Model):
 class QRTag(models.Model):
     collection = models.ForeignKey(QRCollection, null=False, blank=False, on_delete=models.PROTECT)
     name = models.CharField(max_length=300, null=False, blank=False, unique=True)
-    description = models.TextField()
+    owner = models.ForeignKey(User, null=True, blank=True)
+    description = models.TextField(null=True, blank=True)
 
     objects = QRTagManager()
 
     def __str__(self):
-        return self.name + ' (collect: ' + self.collect_hashid + ' / show: ' + self.show_hashid + ')'
+        return self.name + ' (collect: ' + self.collect_hashid + ' / show: ' +\
+               self.show_hashid + ')'
 
     @property
     def collect_hashid(self):
