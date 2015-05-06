@@ -20,4 +20,6 @@ class SuggestionController:
         self._interface = SuggestionController._interface_class()
 
     def suggest(self, last_collected, user):
-        return self._interface.suggest(last_collected, user)
+        if user.is_authenticated() or user.owned_qrcodes.count() <= 3:
+            return self._interface.suggest(last_collected, user)
+        return None

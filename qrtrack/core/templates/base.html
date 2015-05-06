@@ -1,5 +1,6 @@
 {% load static %}
 {% load i18n %}
+{% load bootstrap3 %}
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -8,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="stylesheet" href="{% static 'bootstrap/3.3.4/darkly/bootstrap.min.css' %}" />
 </head>
-<body>
+<body style="padding-top: 10px;">
 <div class="container">
     {% if alerts %}
-        <div class="row" style="padding-top: 20px"><div class="col-md-12">
+        <div class="row"><div class="col-md-12">
     {% for alert in alerts %}
         <div class="alert alert-{{ alert.type }}" role="alert">
             {{ alert.msg }}
@@ -22,11 +23,13 @@
     {% block body %}{% endblock %}
     <div class="row">
         <div class="col-md-12">
-            <div class="well well-sm text-center">
-                <a href="explain.html">
-                    <h6>Wanna know what's going on and sign up for beta?</h6>
-                </a>
-            </div>
+            {% if not user.is_authenticated %}
+                <div class="well well-sm text-center">
+                    <a href="{% url 'register' %}">
+                        <h6>Register to get unlimited hints!</h6>
+                    </a>
+                </div>
+            {% endif %}
             {% block footer %}{% endblock %}
         </div>
     </div>

@@ -1,4 +1,6 @@
 Django==1.8
 hashids==1.1.0
+django-bootstrap3==5.4.0
+
 # I suggest using virtualenv
 -e .

@@ -21,20 +21,22 @@ def show(request, show_id):
     qrcode = QRTag.objects.by_show_hashid_or_404(show_id)
     user = UnifiedUser(request)
     alerts = []
+
     suggest = None
+    if request.user.is_authenticated():
+        suggest = SuggestionController().suggest(qrcode, user)
+
     if 'just_collected' in request.session:
         if request.session['just_collected']:
             alerts = Alerts().success('Congratulations on getting this qrcode!').build()
         else:
             alerts = Alerts().info('You already had this qrcode before').build()
         del request.session['just_collected']
-        suggest = SuggestionController().suggest(qrcode, user)
 
     total_in_collection = QRTag.objects.filter(collection=qrcode.collection).count()
     done_in_collection = QRTag.objects.\
         filter(pk__in=user.owned_qrcodes, collection=qrcode.collection).count()
     percent_done = (done_in_collection / total_in_collection) * 100.0
-
 
     context = {
         'qrcode': qrcode,

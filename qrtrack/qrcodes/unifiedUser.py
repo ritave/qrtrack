@@ -12,6 +12,9 @@ class UnifiedUser:
         else:
             self.interface = _UnifiedSessionUser(request.session)
 
+    def is_authenticated(self):
+        return self.interface.is_authenticated
+
     def collect_code(self, qrobj):
         assert qrobj not in self.owned_qrcodes
         self.interface.collect_code(qrobj)
@@ -32,6 +35,9 @@ class _UnifiedDBUser:
     def __init__(self, user):
         self._user = user
 
+    def is_authenticated(self):
+        return True
+
     def collect_code(self, qrobj):
         completed = CompletedTag(tag=qrobj, user=self._user)
         completed.save()
@@ -47,6 +53,9 @@ class _UnifiedDBUser:
 class _UnifiedSessionUser():
     def __init__(self, session):
         self._session = session
+
+    def is_authenticated(self):
+        return False
 
     def collect_code(self, qrobj):
         if 'collected' not in self._session:
