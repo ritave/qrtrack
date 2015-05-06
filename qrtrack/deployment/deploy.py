@@ -12,15 +12,17 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 SKEL_DIR = 'skeleton/'
 
 
-def generate(directory, input_file, replacements={}):
-    skeleton_file = os.path.join(BASE_DIR, SKEL_DIR, input_file)
-    output_file = os.path.join(directory, input_file)
-    with open(skeleton_file, 'r') as input_file:
+def generate(directory, input_file, replacements={}, mode=None):
+    skeleton_file_path = os.path.join(BASE_DIR, SKEL_DIR, input_file)
+    output_file_path = os.path.join(directory, input_file)
+    with open(skeleton_file_path, 'r') as input_file:
         contents = input_file.read()
     for old, new in replacements.items():
         contents = contents.replace(old, new)
-    with open(output_file, 'w') as output_file:
+    with open(output_file_path, 'w') as output_file:
         output_file.write(contents)
+    if mode is not None:
+        os.chmod(output_file_path, mode)
 
 
 def generate_all(directory, production):
@@ -36,7 +38,8 @@ def generate_all(directory, production):
     generate(directory, 'manage.py',
         {
             '__DIR__': directory,
-        })
+        },
+        mode=0o0755)
     generate(directory, 'wsgi.py',
         {
             '__DIR__': directory,
