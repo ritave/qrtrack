@@ -20,7 +20,9 @@
     {% endfor %}
         </div></div>
     {% endif %}
-    {% block body %}{% endblock %}
+    {% block body %}
+        Nothing to see here
+    {% endblock %}
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm text-center">
@@ -32,7 +34,7 @@
                     <h6>Or like login</h6>
                 </a>
                 {% else %}
-                <a href="{% url 'logout' %}?next={{ request.path }}">
+                <a href="{% url 'logout' %}?next={% url 'index' %}">
                     <h6>Logout <small>{{ user.username }}</small></h6>
                 </a>
                 {% endif %}

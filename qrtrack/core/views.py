@@ -3,15 +3,24 @@ from django.template.response import TemplateResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from qrtrack.core.forms import RegistrationForm
 from qrtrack.core.utils.widget_list import WidgetList
 
-index_widgets = WidgetList()
+profile_widgets = WidgetList()
 
 
 def index(request):
-    return TemplateResponse(request, 'index.html', {
-        'widgets': index_widgets(request)
+    if request.user.is_authenticated():
+        return redirect(reverse('profile'))
+
+    return TemplateResponse(request, 'index.html')
+
+
+@login_required(login_url='/login')
+def profile(request):
+    return TemplateResponse(request, 'registration/profile.html', {
+        'widgets': profile_widgets(request)
     })
 
 

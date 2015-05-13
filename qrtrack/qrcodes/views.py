@@ -4,8 +4,7 @@ from qrtrack.qrcodes.models import QRTag, QRCollection
 from qrtrack.qrcodes.unifiedUser import UnifiedUser
 from qrtrack.core.utils import Alerts
 from qrtrack.qrcodes.controllers import SuggestionController
-from qrtrack.core.utils.widget_list import widget
-from qrtrack.core.views import index_widgets
+from qrtrack.qrcodes.widgets import collection_status_widget
 
 
 def collect(request, collect_id):
@@ -35,17 +34,11 @@ def show(request, show_id):
             alerts = Alerts().info('You already had this qrcode before').build()
         del request.session['just_collected']
 
-    total_in_collection = QRTag.objects.filter(collection=qrcode.collection).count()
-    done_in_collection = QRTag.objects.\
-        filter(pk__in=user.owned_qrcodes, collection=qrcode.collection).count()
-    percent_done = (done_in_collection / total_in_collection) * 100.0
-
     context = {
         'qrcode': qrcode,
         'alerts': alerts,
         'suggest': suggest,
-        'total': total_in_collection,
-        'done': done_in_collection,
-        'percent_done': percent_done,
+        'collection_widget':
+            collection_status_widget(request, qrcode.collection).render().rendered_content
     }
     return TemplateResponse(request, 'show.html', context)

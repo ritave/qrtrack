@@ -11,12 +11,7 @@
         {{ qrcode.description }}
     </div>
     <div class="col-md-3">
-        <h4>Collection: <strong>{{ qrcode.collection.name}}</strong></h4>
-        <p>Done: {{ done }} / {{ total}}</p>
-        <div class="progress">
-            <div class="progress-bar" role="progressbar" style="min-width: 2em;width: {{ percent_done }}%">
-            </div>
-        </div>
+        {{ collection_widget}}
     </div>
 </div>
 {% if suggest %}

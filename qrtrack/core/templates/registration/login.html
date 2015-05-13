@@ -2,15 +2,17 @@
 {% load bootstrap3 %}
 
 {% block body %}
-<div class="col-md-5">
-    <form action="{% url 'login' %}" method="post" class="form">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        {% buttons %}
-            <button type="submit" class="btn btn-primary">
-                {% bootstrap_icon 'start' %} Submit
-            </button>
-        {% endbuttons %}
-    </form>
+<div class="row">
+    <div class="col-md-5">
+        <form action="{% url 'login' %}" method="post" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">
+                    {% bootstrap_icon 'start' %} Submit
+                </button>
+            {% endbuttons %}
+        </form>
+    </div>
 </div>
 {% endblock %}

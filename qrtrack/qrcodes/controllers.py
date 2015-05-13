@@ -9,6 +9,7 @@ class _CollectionSuggestionController:
     def suggest(self, last_collected, user):
         """Accepts last_collected qrcode and UnifiedUser"""
         owned = user.owned_qrcodes
+        # TODO: BUG, can return owned qrcode, why?
         return QRTag.objects.exclude(pk__in=owned).filter(collection=last_collected.collection)\
             .order_by('?').first()
 

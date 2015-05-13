@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>Hey <strong>{{ user.username }}</strong>!</h1>
+{% for widget in widgets %}
+    <hr />
+    {{ widget }}
+{% endfor %}
+{% endblock %}

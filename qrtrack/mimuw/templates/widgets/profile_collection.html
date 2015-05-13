@@ -1,0 +1,16 @@
+{{ collection_widget }}
+Your QR codes:
+<table class="table table-striped">
+    <thead>
+        <th>
+            Name
+        </th>
+    </thead>
+    <tbody>
+        {% for qrcode in qrcodes %}
+            <tr>
+                <td>{{ qrcode.name }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
