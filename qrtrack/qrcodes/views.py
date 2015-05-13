@@ -4,6 +4,8 @@ from qrtrack.qrcodes.models import QRTag, QRCollection
 from qrtrack.qrcodes.unifiedUser import UnifiedUser
 from qrtrack.core.utils import Alerts
 from qrtrack.qrcodes.controllers import SuggestionController
+from qrtrack.core.utils.widget_list import widget
+from qrtrack.core.views import index_widgets
 
 
 def collect(request, collect_id):

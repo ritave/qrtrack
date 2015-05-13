@@ -4,10 +4,15 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from qrtrack.core.forms import RegistrationForm
+from qrtrack.core.utils.widget_list import WidgetList
+
+index_widgets = WidgetList()
 
 
 def index(request):
-    return TemplateResponse(request, 'index.html')
+    return TemplateResponse(request, 'index.html', {
+        'widgets': index_widgets(request)
+    })
 
 
 def register(request):
