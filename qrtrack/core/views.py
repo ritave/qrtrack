@@ -13,7 +13,7 @@ profile_widgets = WidgetList()
 
 def index(request):
     track_event(request, 'index_page_visited')
-    return profile(request)
+    return redirect(reverse('profile'), permanent=False)
 
 
 def profile(request):

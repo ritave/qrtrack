@@ -27,19 +27,21 @@
         <div class="col-md-12">
             <div class="well well-sm text-center">
                 {% if not user.is_authenticated %}
-                <a href="{% url 'register' %}?next={{ request.path }}">
-                    <h6>Register to get hints and to have your collection saved</h6>
-                </a>
-                <a href="{% url 'login' %}">
-                    <h6>Or like login</h6>
-                </a>
+                    <a href="{% url 'register' %}?next={{ request.path }}">
+                        <h6>Register to get hints and to have your collection saved</h6>
+                    </a>
+                    <a href="{% url 'login' %}">
+                        <h6>Or like login</h6>
+                    </a>
                 {% else %}
-                <a href="{% url 'profile' %}">
-                    <h6>Profile</h6>
-                </a>
-                <a href="{% url 'logout' %}?next={% url 'index' %}">
-                    <h6>Logout <small>{{ user.username }}</small></h6>
-                </a>
+                    {% if show_profile_link %}
+                    <a href="{% url 'profile' %}">
+                        <h6>Profile</h6>
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'logout' %}?next={% url 'index' %}">
+                        <h6>Logout <small>{{ user.username }}</small></h6>
+                    </a>
                 {% endif %}
                 <a href="mailto:{{ contact_email }}" target="_blank">
                     <h6>Contact</h6>
