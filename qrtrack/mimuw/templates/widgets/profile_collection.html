@@ -1,20 +1,28 @@
-{{ collection_widget }}
-{% if qrcodes %}
-    Your QR codes:
-    <table class="table table-striped">
-        <thead>
-            <th>
-                Name
-            </th>
-        </thead>
-        <tbody>
-            {% for qrcode in qrcodes %}
-                <tr>
-                    <td><a href="{% url 'show' qrcode.show_hashid %}">{{ qrcode.name }}</a></td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-{% else %}
-    You don't have any QR codes yest
-{% endif %}
+<div class="row">
+    <div class="col-md-12">
+        {{ collection_widget }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        {% if qrcodes %}
+            Your QR codes:
+            <table class="table table-striped">
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                </thead>
+                <tbody>
+                    {% for qrcode in qrcodes %}
+                        <tr>
+                            <td><a href="{% url 'show' qrcode.show_hashid %}">{{ qrcode.name }}</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You don't have any QR codes yet</p>
+        {% endif %}
+    </div>
+</div>

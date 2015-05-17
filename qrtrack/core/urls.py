@@ -4,7 +4,8 @@ import qrtrack.core.views as views
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^', include('django.contrib.auth.urls')),
+    url(r'^login/$', views.login, name='login'),
+    url(r'^logout/$', views.logout, name='logout'),
     url(r'^$', views.index, name='index'),
     url(r'^register$', views.register, name='register'),
     url(r'^profile$', views.profile, name='profile')

@@ -23,7 +23,10 @@ def track_event(request, name, **kwargs):
 def _user_to_event_param(request):
     if request.user.is_authenticated():
         return 'AUTH:' + request.user.username
-    return 'ANON:' + request.session.session_key
+    if request.session.session_key:
+        return 'ANON:' + request.session.session_key
+    # No qrcodes collected, we haven't set anything in the session cookie
+    return 'NONE'
 
 
 def _add_param(event, param, value):
@@ -36,3 +39,11 @@ def echo_event(sender, event, **kwargs):
     print('Event ' + event.type.name + ' tracked at ' + str(event.occurred))
     for param in event.eventparameters_set.all():
         print('\t' + param.parameter + ' :: ' + param.value)
+
+def log_to_file(file):
+    """Prints ALL analytic events to file"""
+    with open(file, 'w+') as f:
+        for event in Event.objects.order_by('occurred').all():
+            f.write('[' + str(event.occurred) + '] ' + event.type.name + '\n')
+            for param in event.eventparameters_set.all():
+                f.write('\t' + param.parameter + ' :: ' + param.value + '\n')

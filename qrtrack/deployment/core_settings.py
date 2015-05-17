@@ -50,3 +50,6 @@ WSGI_APPLICATION = 'wsgi.application'
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/'
+
+# So we can track the user ALWAYS, even if no qrcode found
+SESSION_SAVE_EVERY_REQUEST = True
