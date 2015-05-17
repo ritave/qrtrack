@@ -19,6 +19,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('rating', models.IntegerField(blank=True, null=True, validators=[qrtrack.core.validators.RatingValidator])),
+                ('when', models.DateTimeField(auto_now_add=True)),
             ],
         ),
         migrations.CreateModel(

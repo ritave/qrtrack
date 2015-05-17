@@ -11,13 +11,9 @@ profile_widgets = WidgetList()
 
 
 def index(request):
-    if request.user.is_authenticated():
-        return redirect(reverse('profile'))
-
-    return TemplateResponse(request, 'index.html')
+    return profile(request)
 
 
-@login_required(login_url='/login')
 def profile(request):
     return TemplateResponse(request, 'registration/profile.html', {
         'widgets': profile_widgets(request)

@@ -70,6 +70,7 @@ class CompletedTag(models.Model):
     tag = models.ForeignKey(QRTag, null=False, blank=False)
     user = models.ForeignKey(User, null=False, blank=False)
     rating = models.IntegerField(null=True, blank=True, validators=[RatingValidator])
+    when = models.DateTimeField(null=False, blank=False, auto_now_add=True)
 
     def __str__(self):
         return self.tag.name + ' : ' + self.user.username

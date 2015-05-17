@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% block body %}
-<h1>Hey <strong>{{ user.username }}</strong>!</h1>
+<h1>Hey <strong>
+    {% if user.username %}
+        {{ user.username }}
+    {% else %}
+        anonymous
+    {% endif %}
+</strong>!</h1>
 {% for widget in widgets %}
     <hr />
     {{ widget }}

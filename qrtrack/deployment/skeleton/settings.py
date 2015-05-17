@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    #'qrtrack.mimuw',
 ) + INSTALLED_APPS
 
 MIDDLEWARE_CLASSES = (
