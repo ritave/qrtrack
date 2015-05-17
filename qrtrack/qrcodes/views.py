@@ -5,6 +5,7 @@ from qrtrack.qrcodes.unifiedUser import UnifiedUser
 from qrtrack.core.utils import Alerts
 from qrtrack.qrcodes.controllers import SuggestionController
 from qrtrack.qrcodes.widgets import collection_status_widget
+from qrtrack.analytics.utils import track_event
 
 
 def collect(request, collect_id):
@@ -13,6 +14,7 @@ def collect(request, collect_id):
     if not u_user.has_qrcode(qrcode):
         u_user.collect_code(qrcode)
         request.session['just_collected'] = True
+        track_event(request, 'collected', qrcode=qrcode.name)
     else:
         request.session['just_collected'] = False
     return redirect('show', permanent=False, show_id=qrcode.show_hashid)
@@ -20,6 +22,7 @@ def collect(request, collect_id):
 
 def show(request, show_id):
     qrcode = QRTag.objects.by_show_hashid_or_404(show_id)
+    track_event(request, 'shown', qrcode=qrcode.name)
     user = UnifiedUser(request)
     alerts = []
 
