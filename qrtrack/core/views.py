@@ -26,10 +26,11 @@ def profile(request):
 def login(request, *args, **kwargs):
     track_event(request, 'login_page_visited')
     response = auth.login(request, *args, **kwargs)
-    if request.user.is_authenticated():
-        track_event(request, 'login_success')
-    else:
-        track_event(request, 'login_failed')
+    if request.method == 'POST':
+        if request.user.is_authenticated():
+            track_event(request, 'login_success')
+        else:
+            track_event(request, 'login_failed')
     return response
 
 
