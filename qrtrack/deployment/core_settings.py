@@ -10,6 +10,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'qrtrack.core',
     'qrtrack.qrcodes',
+    'qrtrack.analytics',
 )
 
 MIDDLEWARE_CLASSES = (
