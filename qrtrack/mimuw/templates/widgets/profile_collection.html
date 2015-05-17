@@ -16,7 +16,12 @@
                 <tbody>
                     {% for qrcode in qrcodes %}
                         <tr>
-                            <td><a href="{% url 'show' qrcode.show_hashid %}">{{ qrcode.name }}</a></td>
+                            <td>
+                                <a href="{% url 'show' qrcode.show_hashid %}">{{ qrcode.name }}</a>
+                                {% if qrcode.hidden %}
+                                    <small>hidden</small>
+                                {% endif %}
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>

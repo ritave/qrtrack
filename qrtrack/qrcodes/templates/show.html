@@ -3,7 +3,12 @@
 {% block body %}
 <div class="row">
     <div class="col-md-12">
-        <h1><strong>{{ qrcode.name }}</strong></h1>
+        <h1>
+            <strong>{{ qrcode.name }}</strong>
+            {% if qrcode.hidden %}
+            <small>hidden</small>
+            {% endif %}
+        </h1>
     </div>
 </div>
 <div class="row">
