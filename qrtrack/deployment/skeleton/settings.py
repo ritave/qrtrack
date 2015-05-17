@@ -22,6 +22,8 @@ DEPLOYED_SETTINGS_VERSION = '__SETTINGS_VERSION__'
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+CONTACT_EMAIL = 'some@email.com'
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/

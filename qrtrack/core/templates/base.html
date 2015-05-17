@@ -41,6 +41,9 @@
                     <h6>Logout <small>{{ user.username }}</small></h6>
                 </a>
                 {% endif %}
+                <a href="mailto:{{ contact_email }}" target="_blank">
+                    <h6>Contact</h6>
+                </a>
             </div>
             {% block footer %}{% endblock %}
         </div>
