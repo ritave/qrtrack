@@ -9,7 +9,7 @@
                 {% if user.username %}
                     {{ user.username }}
                 {% else %}
-                    anonymous
+                    {% trans 'anonymous' %}
                 {% endif %}
             </strong>!
         </h1>

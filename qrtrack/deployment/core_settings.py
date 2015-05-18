@@ -16,8 +16,9 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'qrtrack.core.middleware.ForceDefaultLanguageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -51,7 +52,6 @@ LANGUAGES = (
 
 LOCALE_PATHS = [
     os.path.join(os.path.dirname(qrtrack.__file__), 'locale'),
-    os.path.join(os.path.dirname(qrtrack.__file__), 'locale-overrides'),
 ]
 
 ROOT_URLCONF = 'qrtrack.deployment.urls'

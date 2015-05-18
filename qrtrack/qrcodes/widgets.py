@@ -15,5 +15,5 @@ def collection_status_widget(request, collection):
         'total': total_in_collection,
         'done_hidden': hidden_done_in_collection,
         'done': done_in_collection,
-        'percent_done': percent_done,
+        'percent_done': int(percent_done),
     })

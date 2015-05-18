@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 13:19+0200\n"
+"POT-Creation-Date: 2015-05-18 14:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,121 +19,120 @@ msgstr ""
 
 #: core/forms.py:7
 msgid "Username"
-msgstr "Nazwa użytkownika"
+msgstr ""
 
 #: core/forms.py:8
 msgid "Your e-mail (optional)"
-msgstr "Twój e-mail (opcjonalny)"
+msgstr ""
 
 #: core/forms.py:9
 msgid "Your password"
-msgstr "Twoje hasło"
+msgstr ""
 
 #: core/forms.py:11
 msgid "Repeat password"
-msgstr "Powtórz hasło"
+msgstr ""
 
 #: core/forms.py:13
 msgid "Do you want to be informed about beta?"
-msgstr "Czy chcesz abyśmy dali ci znać o becie?"
+msgstr ""
 
 #: core/forms.py:23
 msgid "You need email to be informed about beta"
-msgstr "Musisz podać e-mail aby być poinformowany o becie"
+msgstr ""
 
 #: core/forms.py:30
 msgid "User with this email or username already exists"
-msgstr "Użytkownik z tym e-mailem albo nickiem już istnieje"
+msgstr ""
 
 #: core/forms.py:35
 msgid "The passwords don't match"
-msgstr "Hasła się nie zgadzają"
+msgstr ""
 
 #: core/templates/base.html:35
 msgid "Profile"
-msgstr "Profil"
+msgstr ""
 
 #: core/templates/base.html:42
 msgid "Register"
-msgstr "Zarejestruj się"
+msgstr ""
 
 #: core/templates/base.html:47
 msgid "Or like login"
-msgstr "Albo wiesz, zaloguj"
+msgstr ""
 
 #: core/templates/base.html:53
 msgid "Logout"
-msgstr "Wyloguj się"
+msgstr ""
 
 #: core/templates/base.html:59
 msgid "Contact"
-msgstr "Kontakt"
+msgstr ""
 
-#: core/templates/registration/profile.html:6
+#: core/templates/registration/login.html:13
+msgid "Submit"
+msgstr ""
+
+#: core/templates/registration/profile.html:7
 msgid "Hey"
-msgstr "Hej"
+msgstr ""
+
+#: core/templates/registration/profile.html:12
+msgid "anonymous"
+msgstr ""
 
 #: core/views.py:25
 msgid ""
 "Your collected qrcodes might be lost in close future if you don't register "
 "to have them saved on the website"
 msgstr ""
-"Twoje zebrane QR kody mogą być zapomniane w przyszłości jeśli się nie "
-"zarejestrujesz aby zapisać je na stronie"
 
-#: mimuw/templates/widgets/profile_collection.html:12
+#: mimuw/templates/widgets/profile_collection.html:13
 msgid "Your QR codes"
-msgstr "Twoje QR kody"
+msgstr ""
 
-#: mimuw/templates/widgets/profile_collection.html:21
+#: mimuw/templates/widgets/profile_collection.html:22
 msgctxt "list of qrcodes attribute"
 msgid "(hidden)"
-msgstr "(ukryty)"
+msgstr ""
 
-#: mimuw/templates/widgets/profile_collection.html:29
+#: mimuw/templates/widgets/profile_collection.html:30
 msgid "You don't have any QR codes yet"
-msgstr "Nie masz jeszcze żadnych QR kodów"
+msgstr ""
 
-#: qrcodes/templates/collection_widget.html:3
+#: qrcodes/templates/collection_widget.html:4
 msgid "Done"
-msgstr "Zrobione"
+msgstr ""
 
-#: qrcodes/templates/collection_widget.html:6
+#: qrcodes/templates/collection_widget.html:7
 #, python-format
 msgid "+ %(done)s hidden"
 msgid_plural "+ %(done)s hidden"
-msgstr[0] "+ %(done)s ukryty"
-msgstr[1] "+ %(done)s ukrytych"
+msgstr[0] ""
+msgstr[1] ""
 
-#: qrcodes/templates/show.html:9
+#: qrcodes/templates/show.html:10
 msgctxt "showing qrcode"
 msgid "hidden"
-msgstr "ukryty"
+msgstr ""
 
-#: qrcodes/templates/show.html:30
+#: qrcodes/templates/show.html:31
 #, python-format
 msgid ""
-"Why don't you try searching for<br /> <strong>%(suggest.name)s</strong>?<br /"
-"> It should be around here... Somewhere..."
+"Why don't you try searching for<br /> <strong>%(suggestion)s</strong>?<br /> "
+"It should be around here... Somewhere..."
 msgstr ""
-"Czemu nie poszukasz <br /> <strong>%(suggest.name)s</strong>?<br />"
-"Powinien być gdzieś w okolicy..."
 
 #: qrcodes/views.py:35
 msgid ""
 "I see you got your first qrcode, throughout the building we have hidden a "
 "lot more, can you find the all and complete your collection?"
 msgstr ""
-"Widze, że zdobyłeś swój pierwszy QR kod, w całym budynku ukryliśmy ich "
-"zdecydowanie więcej, czy dasz radę znaleźć je wszystkie?"
 
 #: qrcodes/views.py:39
 msgid "This qrcode has been added to your collection."
-msgstr "Ten QR kod został dodany do twojej kolekcji."
+msgstr ""
 
 #: qrcodes/views.py:41
 msgid "You already collected qrcode before"
-msgstr "Już zdobyłes ten QR kod wcześniej"
-
-#~ msgid "hidden"
-#~ msgstr "ukryte"
+msgstr ""

@@ -28,9 +28,9 @@
         <div class="col-md-12">
             <div class="well">
                 <div class="text-center">
-                    {% blocktrans trimmed %}
+                    {% blocktrans trimmed with suggestion=suggest.name %}
                     Why don't you try searching for<br />
-                    <strong>{{ suggest.name }}</strong>?<br />
+                    <strong>{{ suggestion }}</strong>?<br />
                     It should be around here... Somewhere...
                     {% endblocktrans %}
                 </div>
