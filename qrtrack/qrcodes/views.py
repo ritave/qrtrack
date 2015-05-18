@@ -33,10 +33,13 @@ def show(request, show_id):
     if 'just_collected' in request.session:
         if request.session['just_collected']:
             if user.owned_qrcodes.count() == 1:
-                alerts.success('I see you got your first qrcode, blah blah')
-            alerts.info('This qrcode has been added to your collection!')
+                alerts.success('I see you got your first qrcode, throughout the building we have'
+                               ' hidden a lot more, can you find the all and complete your'
+                               ' collection?')
+            else:
+                alerts.info('This qrcode has been added to your collection.')
         else:
-            alerts.warning('You already had this qrcode before')
+            alerts.warning('You already collected qrcode before')
         del request.session['just_collected']
 
     context = {

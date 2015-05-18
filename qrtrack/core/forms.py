@@ -32,5 +32,5 @@ class RegistrationForm(forms.Form):
         pass1 = cleaned.get('password')
         pass2 = cleaned.get('repeat_pass')
         if pass1 != pass2:
-            raise forms.ValidationError('The passwords don\'t match!')
+            raise forms.ValidationError('The passwords don\'t match')
         return cleaned
