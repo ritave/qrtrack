@@ -41,3 +41,5 @@ def log_to_file(file):
             f.write('[' + str(event.occurred) + '] ' + event.type.name + '\n')
             for param in event.eventparameters_set.all():
                 f.write('\t' + param.parameter + ' :: ' + param.value + '\n')
+
+import qrtrack.analytics.signals
