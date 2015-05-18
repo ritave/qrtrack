@@ -6,11 +6,24 @@ from qrtrack.qrcodes.models import QRTag, CompletedTag
 
 
 class UnifiedUser:
-    def __init__(self, request):
-        if request.user.is_authenticated():
-            self.interface = _UnifiedDBUser(request.user)
+    def __init__(self, request=None, *, force_db=None, force_session=None):
+        """Sets the user based on request and logged in user.
+           Developer can force one or other implementation by providing the session or user object
+           in force_session / force_db kwargs respectively"""
+        if (force_db or force_session) and request is None:
+            if force_db and force_session:
+                raise ValueError('Can\'t have both forced session and db user')
+            elif force_db:
+                self.interface = _UnifiedDBUser(force_db)
+            else:
+                self.interface = _UnifiedSessionUser(force_session)
+        elif request is not None:
+            if request.user.is_authenticated():
+                self.interface = _UnifiedDBUser(request.user)
+            else:
+                self.interface = _UnifiedSessionUser(request.session)
         else:
-            self.interface = _UnifiedSessionUser(request.session)
+            raise ValueError('Request can\'t be None if no force kwarg was provided')
 
     def is_authenticated(self):
         return self.interface.is_authenticated

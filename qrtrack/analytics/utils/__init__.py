@@ -2,7 +2,7 @@ from django.db import transaction
 from django.dispatch import Signal, receiver
 from qrtrack.analytics.models import Event, EventParameters, EventType
 
-event_tracked = Signal(providing_args=['event'])
+event_tracked = Signal(providing_args=['sender', 'event'])
 
 
 @transaction.atomic()
@@ -33,12 +33,6 @@ def _add_param(event, param, value):
     new_param = EventParameters(event_occurrence=event, parameter=param, value=value)
     new_param.save()
 
-
-@receiver(event_tracked)
-def echo_event(sender, event, **kwargs):
-    print('Event ' + event.type.name + ' tracked at ' + str(event.occurred))
-    for param in event.eventparameters_set.all():
-        print('\t' + param.parameter + ' :: ' + param.value)
 
 def log_to_file(file):
     """Prints ALL analytic events to file"""

@@ -49,3 +49,5 @@ def show(request, show_id):
             collection_status_widget(request, qrcode.collection).render().rendered_content
     }
     return TemplateResponse(request, 'show.html', context)
+
+import qrtrack.qrcodes.signals

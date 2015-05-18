@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.db.models import Q
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 class RegistrationForm(forms.Form):
     username = forms.CharField(label=_("Username"), max_length=100, required=True)

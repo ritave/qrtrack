@@ -4,13 +4,17 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.utils.translation import ugettext as _
+from django.dispatch import Signal
 import django.contrib.auth.views as auth
+from django.db import transaction
 from qrtrack.core.forms import RegistrationForm
 from qrtrack.core.utils.widget_list import WidgetList
 from qrtrack.analytics.utils import track_event
 from qrtrack.core.utils import Alerts
 
 profile_widgets = WidgetList()
+# Provides newly registered user object
+registration_successful = Signal(providing_args=['sender', 'request', 'user'])
 
 
 def index(request):
@@ -46,7 +50,7 @@ def logout(request, *args, **kwargs):
     response = auth.logout(request, *args, **kwargs)
     return response
 
-
+@transaction.atomic
 def register(request):
     if request.user.is_authenticated():
         return redirect(reverse('index'))
@@ -67,6 +71,7 @@ def register(request):
             login(request, user)
 
             track_event(request, 'register_success', username=username, email=email)
+            registration_successful.send(sender=register, request=request, user=user)
 
             if 'next' in request.GET:
                 next = request.GET['next']
