@@ -50,11 +50,15 @@ class QRTag(models.Model):
     name = models.CharField(max_length=300, null=False, blank=False, unique=True)
     owner = models.ForeignKey(User, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    hidden = models.BooleanField(null=False, blank=False, default=False)
 
     objects = QRTagManager()
 
     def __str__(self):
-        return self.name + ' (collect: ' + self.collect_hashid + ' / show: ' +\
+        hidden_tag = ''
+        if self.hidden:
+            hidden_tag = '[hidden] '
+        return hidden_tag + self.name + ' (collect: ' + self.collect_hashid + ' / show: ' +\
                self.show_hashid + ')'
 
     @property
