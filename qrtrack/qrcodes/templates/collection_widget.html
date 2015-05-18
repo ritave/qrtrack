@@ -1,8 +1,8 @@
-<h4><strong>{{ collection.name}}</strong> collection</h4>
+<h4><strong>{{ collection.name}}</strong></h4>
 <p>
     <h5>Done: <strong>{{ done }}</strong> / <strong>{{ total}}</strong>
-    {% if total_hidden > 0 %}
-        <small> + {{ total_hidden }} hidden</small>
+    {% if done_hidden > 0 %}
+        <small> + {{ done_hidden }} hidden</small>
     {% endif %}
     </h5>
 </p>

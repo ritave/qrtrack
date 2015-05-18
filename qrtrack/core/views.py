@@ -7,6 +7,7 @@ import django.contrib.auth.views as auth
 from qrtrack.core.forms import RegistrationForm
 from qrtrack.core.utils.widget_list import WidgetList
 from qrtrack.analytics.utils import track_event
+from qrtrack.core.utils import Alerts
 
 profile_widgets = WidgetList()
 
@@ -18,8 +19,13 @@ def index(request):
 
 def profile(request):
     track_event(request, 'profile_page_visited')
+    alerts = Alerts()
+    if not request.user.is_authenticated():
+        alerts.warning('''Look out! Your collected qrcodes might be lost in close future if you
+        don't register to have them saved on the website''')
     return TemplateResponse(request, 'registration/profile.html', {
-        'widgets': profile_widgets(request)
+        'widgets': profile_widgets(request),
+        'alerts': alerts.build(),
     })
 
 

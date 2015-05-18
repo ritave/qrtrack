@@ -13,7 +13,10 @@
 </div>
 <div class="row">
     <div class="col-md-9">
-        {{ qrcode.description }}
+        {# Terrible hack! #}
+        {% autoescape off %}
+            {{ qrcode.description }}
+        {% endautoescape %}
     </div>
     <div class="col-md-3">
         {{ collection_widget}}

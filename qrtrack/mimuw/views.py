@@ -17,5 +17,5 @@ def profile_collection_widget(request):
     return TemplateResponse(request, 'widgets/profile_collection.html', {
         'collection_widget':
             collection_status_widget(request, first_collection).render().rendered_content,
-        'qrcodes': user.owned_qrcodes,
+        'qrcodes': user.owned_qrcodes.order_by('name'),
     })

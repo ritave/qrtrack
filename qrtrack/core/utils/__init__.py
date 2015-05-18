@@ -31,7 +31,7 @@ class Alerts:
         return self
 
     def warning(self, msg):
-        self._alert('warn', msg)
+        self._alert('warning', msg)
         return self
 
     def error(self, msg):

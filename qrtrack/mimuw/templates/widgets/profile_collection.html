@@ -6,11 +6,10 @@
 <div class="row">
     <div class="col-md-12">
         {% if qrcodes %}
-            Your QR codes:
             <table class="table table-striped">
                 <thead>
                     <th>
-                        Name
+                        Your QR codes
                     </th>
                 </thead>
                 <tbody>
@@ -19,7 +18,7 @@
                             <td>
                                 <a href="{% url 'show' qrcode.show_hashid %}">{{ qrcode.name }}</a>
                                 {% if qrcode.hidden %}
-                                    <small>hidden</small>
+                                    <small><i>(hidden)</i></small>
                                 {% endif %}
                             </td>
                         </tr>

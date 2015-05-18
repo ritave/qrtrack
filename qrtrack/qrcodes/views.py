@@ -24,22 +24,24 @@ def show(request, show_id):
     qrcode = QRTag.objects.by_show_hashid_or_404(show_id)
     track_event(request, 'qrcode_shown', collection=qrcode.collection.name, qrcode=qrcode.name)
     user = UnifiedUser(request)
-    alerts = []
+    alerts = Alerts()
 
-    suggest = None
-    if request.user.is_authenticated():
-        suggest = SuggestionController().suggest(qrcode, user)
+    #suggest = None
+    #if request.user.is_authenticated():
+    suggest = SuggestionController().suggest(qrcode, user)
 
     if 'just_collected' in request.session:
         if request.session['just_collected']:
-            alerts = Alerts().success('Congratulations on getting this qrcode!').build()
+            if user.owned_qrcodes.count() == 1:
+                alerts.success('I see you got your first qrcode, blah blah')
+            alerts.info('This qrcode has been added to your collection!')
         else:
-            alerts = Alerts().info('You already had this qrcode before').build()
+            alerts.warning('You already had this qrcode before')
         del request.session['just_collected']
 
     context = {
         'qrcode': qrcode,
-        'alerts': alerts,
+        'alerts': alerts.build(),
         'suggest': suggest,
         'collection_widget':
             collection_status_widget(request, qrcode.collection).render().rendered_content
