@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% block body %}
 <div class="row">
     <div class="col-md-12">
         <h1>
-            Hey
+            {% trans 'Hey' %}
             <strong>
                 {% if user.username %}
                     {{ user.username }}

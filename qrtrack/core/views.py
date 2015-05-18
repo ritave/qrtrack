@@ -3,6 +3,7 @@ from django.template.response import TemplateResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
+from django.utils.translation import ugettext as _
 import django.contrib.auth.views as auth
 from qrtrack.core.forms import RegistrationForm
 from qrtrack.core.utils.widget_list import WidgetList
@@ -21,8 +22,8 @@ def profile(request):
     track_event(request, 'profile_page_visited')
     alerts = Alerts()
     if not request.user.is_authenticated():
-        alerts.warning('Your collected qrcodes might be lost in close future if you'
-                       ' don\'t register to have them saved on the website')
+        alerts.warning(_("Your collected qrcodes might be lost in close future if you"
+                         " don't register to have them saved on the website"))
     return TemplateResponse(request, 'registration/profile.html', {
         'widgets': profile_widgets(request),
         'alerts': alerts.build(),

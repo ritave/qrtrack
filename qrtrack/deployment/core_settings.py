@@ -1,3 +1,5 @@
+import os
+import qrtrack
 DEVELOPMENT_SETTINGS_VERSION = 'alpha'
 
 INSTALLED_APPS = (
@@ -14,6 +16,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.locale.LocaleMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -39,6 +42,16 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+LANGUAGES = (
+    ('en', 'English'),
+    ('pl', 'Polish'),
+)
+
+LOCALE_PATHS = [
+    os.path.join(os.path.dirname(qrtrack.__file__), 'locale'),
+    os.path.join(os.path.dirname(qrtrack.__file__), 'locale-overrides'),
 ]
 
 ROOT_URLCONF = 'qrtrack.deployment.urls'

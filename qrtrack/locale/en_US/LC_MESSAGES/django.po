@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-05-18 13:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: core/forms.py:7
+msgid "Username"
+msgstr ""
+
+#: core/forms.py:8
+msgid "Your e-mail (optional)"
+msgstr ""
+
+#: core/forms.py:9
+msgid "Your password"
+msgstr ""
+
+#: core/forms.py:11
+msgid "Repeat password"
+msgstr ""
+
+#: core/forms.py:13
+msgid "Do you want to be informed about beta?"
+msgstr ""
+
+#: core/forms.py:23
+msgid "You need email to be informed about beta"
+msgstr ""
+
+#: core/forms.py:30
+msgid "User with this email or username already exists"
+msgstr ""
+
+#: core/forms.py:35
+msgid "The passwords don't match"
+msgstr ""
+
+#: core/templates/base.html:35
+msgid "Profile"
+msgstr ""
+
+#: core/templates/base.html:42
+msgid "Register"
+msgstr ""
+
+#: core/templates/base.html:47
+msgid "Or like login"
+msgstr ""
+
+#: core/templates/base.html:53
+msgid "Logout"
+msgstr ""
+
+#: core/templates/base.html:59
+msgid "Contact"
+msgstr ""
+
+#: core/templates/registration/profile.html:6
+msgid "Hey"
+msgstr ""
+
+#: core/views.py:25
+msgid ""
+"Your collected qrcodes might be lost in close future if you don't register "
+"to have them saved on the website"
+msgstr ""
+
+#: mimuw/templates/widgets/profile_collection.html:12
+msgid "Your QR codes"
+msgstr ""
+
+#: mimuw/templates/widgets/profile_collection.html:21
+msgctxt "list of qrcodes attribute"
+msgid "(hidden)"
+msgstr ""
+
+#: mimuw/templates/widgets/profile_collection.html:29
+msgid "You don't have any QR codes yet"
+msgstr ""
+
+#: qrcodes/templates/collection_widget.html:3
+msgid "Done"
+msgstr ""
+
+#: qrcodes/templates/collection_widget.html:6
+#, python-format
+msgid "+ %(done)s hidden"
+msgid_plural "+ %(done)s hidden"
+msgstr[0] ""
+msgstr[1] ""
+
+#: qrcodes/templates/show.html:9
+msgctxt "showing qrcode"
+msgid "hidden"
+msgstr ""
+
+#: qrcodes/templates/show.html:30
+#, python-format
+msgid ""
+"Why don't you try searching for<br /> <strong>%(suggest.name)s</strong>?<br /"
+"> It should be around here... Somewhere..."
+msgstr ""
+
+#: qrcodes/views.py:35
+msgid ""
+"I see you got your first qrcode, throughout the building we have hidden a "
+"lot more, can you find the all and complete your collection?"
+msgstr ""
+
+#: qrcodes/views.py:39
+msgid "This qrcode has been added to your collection."
+msgstr ""
+
+#: qrcodes/views.py:41
+msgid "You already collected qrcode before"
+msgstr ""

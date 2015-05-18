@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="row">
     <div class="col-md-12">
         {{ collection_widget }}
@@ -9,7 +10,7 @@
             <table class="table table-striped">
                 <thead>
                     <th>
-                        Your QR codes
+                        {% trans 'Your QR codes' %}
                     </th>
                 </thead>
                 <tbody>
@@ -18,7 +19,7 @@
                             <td>
                                 <a href="{% url 'show' qrcode.show_hashid %}">{{ qrcode.name }}</a>
                                 {% if qrcode.hidden %}
-                                    <small><i>(hidden)</i></small>
+                                    <small><i>{% trans '(hidden)' context 'list of qrcodes attribute' %}</i></small>
                                 {% endif %}
                             </td>
                         </tr>
@@ -26,7 +27,7 @@
                 </tbody>
             </table>
         {% else %}
-            <p>You don't have any QR codes yet</p>
+            <p>{% trans "You don't have any QR codes yet" %}</p>
         {% endif %}
     </div>
 </div>

@@ -32,31 +32,31 @@
                     {% if show_profile_link %}
                         <li>
                             <a href="{% url 'profile' %}">
-                                <h6>Profile</h6>
+                                <h6>{% trans 'Profile' %}</h6>
                             </a>
                         </li>
                     {% endif %}
                     {% if not user.is_authenticated %}
                         <li>
                             <a href="{% url 'register' %}?next={{ request.path }}">
-                                <h6>Register</h6>
+                                <h6>{% trans 'Register' %}</h6>
                             </a>
                         </li>
                         <li>
                             <a href="{% url 'login' %}">
-                                <h6>Or like login</h6>
+                                <h6>{% trans 'Or like login' %}</h6>
                             </a>
                         </li>
                     {% else %}
                         <li>
                             <a href="{% url 'logout' %}?next={% url 'index' %}">
-                                <h6>Logout <small>{{ user.username }}</small></h6>
+                                <h6>{% trans 'Logout' %} <small>{{ user.username }}</small></h6>
                             </a>
                         </li>
                     {% endif %}
                     <li>
                         <a href="mailto:{{ contact_email }}" target="_blank">
-                            <h6>Contact</h6>
+                            <h6>{% trans 'Contact' %}</h6>
                         </a>
                     </li>
                 </ul>

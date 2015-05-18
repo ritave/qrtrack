@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n %}
 
 {% block body %}
 <div class="row">
@@ -6,7 +7,7 @@
         <h1>
             <strong>{{ qrcode.name }}</strong>
             {% if qrcode.hidden %}
-            <small>hidden</small>
+            <small>{% trans 'hidden' context 'showing qrcode' %}</small>
             {% endif %}
         </h1>
     </div>
@@ -19,7 +20,7 @@
         {% endautoescape %}
     </div>
     <div class="col-md-3">
-        {{ collection_widget}}
+        {{ collection_widget }}
     </div>
 </div>
 {% if suggest %}
@@ -27,9 +28,11 @@
         <div class="col-md-12">
             <div class="well">
                 <div class="text-center">
+                    {% blocktrans trimmed %}
                     Why don't you try searching for<br />
                     <strong>{{ suggest.name }}</strong>?<br />
                     It should be around here... Somewhere...
+                    {% endblocktrans %}
                 </div>
             </div>
         </div>

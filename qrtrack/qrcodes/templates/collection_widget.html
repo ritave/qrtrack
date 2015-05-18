@@ -1,8 +1,15 @@
-<h4><strong>{{ collection.name}}</strong></h4>
+{% load i18n %}
+<h4><strong>{{ collection.name }}</strong></h4>
 <p>
-    <h5>Done: <strong>{{ done }}</strong> / <strong>{{ total}}</strong>
+    <h5>{% trans 'Done' %}: <strong>{{ done }}</strong> / <strong>{{ total}}</strong>
     {% if done_hidden > 0 %}
-        <small> + {{ done_hidden }} hidden</small>
+        <small>
+            {% blocktrans trimmed count done=done_hidden%}
+                + {{ done }} hidden
+            {% plural %}
+                + {{ done }} hidden
+            {% endblocktrans %}
+        </small>
     {% endif %}
     </h5>
 </p>

@@ -1,5 +1,6 @@
 from django.template.response import TemplateResponse
 from django.shortcuts import redirect
+from django.utils.translation import ugettext as _
 from qrtrack.qrcodes.models import QRTag, QRCollection
 from qrtrack.qrcodes.unifiedUser import UnifiedUser
 from qrtrack.core.utils import Alerts
@@ -26,20 +27,18 @@ def show(request, show_id):
     user = UnifiedUser(request)
     alerts = Alerts()
 
-    #suggest = None
-    #if request.user.is_authenticated():
     suggest = SuggestionController().suggest(qrcode, user)
 
     if 'just_collected' in request.session:
         if request.session['just_collected']:
             if user.owned_qrcodes.count() == 1:
-                alerts.success('I see you got your first qrcode, throughout the building we have'
-                               ' hidden a lot more, can you find the all and complete your'
-                               ' collection?')
+                alerts.success(_("I see you got your first qrcode, throughout the building we have"
+                                 " hidden a lot more, can you find the all and complete your"
+                                 " collection?"))
             else:
-                alerts.info('This qrcode has been added to your collection.')
+                alerts.info(_("This qrcode has been added to your collection."))
         else:
-            alerts.warning('You already collected qrcode before')
+            alerts.warning(_("You already collected qrcode before"))
         del request.session['just_collected']
 
     context = {
