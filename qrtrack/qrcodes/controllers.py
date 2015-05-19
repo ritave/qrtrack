@@ -10,7 +10,8 @@ class _CollectionSuggestionController:
         """Accepts last_collected qrcode and UnifiedUser"""
         owned = user.owned_qrcodes
         # TODO: BUG, can return owned qrcode, why?
-        return QRTag.objects.exclude(pk__in=owned).filter(collection=last_collected.collection)\
+        return QRTag.objects.exclude(pk__in=owned)\
+            .filter(collection=last_collected.collection, hidden=False)\
             .order_by('?').first()
 
 
