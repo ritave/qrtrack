@@ -10,17 +10,12 @@ class RegistrationForm(forms.Form):
                                required=True)
     repeat_pass = forms.CharField(label=_("Repeat password"), max_length=30, required=True,
                                   widget=forms.PasswordInput)
-    wants_beta = forms.BooleanField(label=_("Do you want to be informed about beta?"), required=False,
-                                    initial=True)
 
     def clean(self):
         cleaned = super(RegistrationForm, self).clean()
 
-        wants_beta = cleaned.get('wants_beta')
         email = cleaned.get('email')
         username = cleaned.get('username')
-        if wants_beta and email == '':
-            raise forms.ValidationError(_("You need email to be informed about beta"))
 
         if email == '':
             email_q = Q()

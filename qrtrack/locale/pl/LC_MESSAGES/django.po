@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 14:40+0200\n"
+"POT-Creation-Date: 2015-05-21 02:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,19 +33,11 @@ msgstr "Twoje hasło"
 msgid "Repeat password"
 msgstr "Powtórz hasło"
 
-#: core/forms.py:13
-msgid "Do you want to be informed about beta?"
-msgstr "Czy chcesz abyśmy dali ci znać o becie?"
-
-#: core/forms.py:23
-msgid "You need email to be informed about beta"
-msgstr "Musisz podać e-mail aby być poinformowany o becie"
-
-#: core/forms.py:30
+#: core/forms.py:25
 msgid "User with this email or username already exists"
 msgstr "Użytkownik z tym e-mailem albo nickiem już istnieje"
 
-#: core/forms.py:35
+#: core/forms.py:30
 msgid "The passwords don't match"
 msgstr "Hasła się nie zgadzają"
 
@@ -63,7 +55,7 @@ msgstr "Albo wiesz, zaloguj się"
 
 #: core/templates/base.html:53
 msgid "Logout"
-msgstr "Wyloguj się"
+msgstr "Wyloguj"
 
 #: core/templates/base.html:59
 msgid "Contact"
@@ -81,7 +73,7 @@ msgstr "Hej"
 msgid "anonymous"
 msgstr "anonimowy użytkowniku"
 
-#: core/views.py:25
+#: core/views.py:29
 msgid ""
 "Your collected qrcodes might be lost in close future if you don't register "
 "to have them saved on the website"
@@ -142,6 +134,12 @@ msgstr "Ten QR kod został dodany do twojej kolekcji."
 #: qrcodes/views.py:41
 msgid "You already collected qrcode before"
 msgstr "Już zdobyłes ten QR kod wcześniej"
+
+#~ msgid "Do you want to be informed about beta?"
+#~ msgstr "Czy chcesz abyśmy dali ci znać o becie?"
+
+#~ msgid "You need email to be informed about beta"
+#~ msgstr "Musisz podać e-mail aby być poinformowany o becie"
 
 #~ msgid "hidden"
 #~ msgstr "ukryte"

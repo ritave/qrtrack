@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-18 14:40+0200\n"
+"POT-Creation-Date: 2015-05-21 02:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,19 +33,11 @@ msgstr ""
 msgid "Repeat password"
 msgstr ""
 
-#: core/forms.py:13
-msgid "Do you want to be informed about beta?"
-msgstr ""
-
-#: core/forms.py:23
-msgid "You need email to be informed about beta"
-msgstr ""
-
-#: core/forms.py:30
+#: core/forms.py:25
 msgid "User with this email or username already exists"
 msgstr ""
 
-#: core/forms.py:35
+#: core/forms.py:30
 msgid "The passwords don't match"
 msgstr ""
 
@@ -81,7 +73,7 @@ msgstr ""
 msgid "anonymous"
 msgstr ""
 
-#: core/views.py:25
+#: core/views.py:29
 msgid ""
 "Your collected qrcodes might be lost in close future if you don't register "
 "to have them saved on the website"
